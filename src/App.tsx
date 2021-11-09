@@ -6,6 +6,7 @@ import { CounterTypes } from './store/reducers/counter/types'
 
 export function App() {
 	const dispatch = useDispatch()
+	// ГДЕ ТАЙП СЕЛЕКТОР ????????
 	const { value } = useSelector((state: RootState) => state.counter)
 
 	const i = useCallback(() => {
