@@ -5,4 +5,4 @@ export type CounterState = {
 export enum CounterTypes {
     INCREMENT = "counter|increment",
     DECREMENT = "counter|decrement",
-}
+};
