@@ -1,6 +1,5 @@
-import React from 'react'
-import { Props } from './types'
-import styles from './Counter.module.sass'
+import { Props } from './types';
+import styles from './Counter.module.sass';
 
 export const Counter = ({ value, increment, decrement }: Props) => {
 	return (
@@ -10,4 +9,4 @@ export const Counter = ({ value, increment, decrement }: Props) => {
 			<button className={styles.button} onClick={decrement} children='-' />
 		</div>
 	)
-}
+};

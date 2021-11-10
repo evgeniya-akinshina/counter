@@ -1,26 +1,36 @@
-import React, { useCallback } from 'react'
-import { Counter } from './components/Counters'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from './store'
-import { CounterTypes } from './store/reducers/counter/types'
+import React, { useCallback } from 'react';
+import { Counter } from './components/Counters';
+import { useDispatch } from 'react-redux';
+import { useTypedSelector } from './hooks/useTypedSelector';
+import { CounterTypes } from './store/reducers/counter/types';
 
 export function App() {
 	const dispatch = useDispatch()
-	// ГДЕ ТАЙП СЕЛЕКТОР ????????
-	const { value } = useSelector((state: RootState) => state.counter)
 
-	const i = useCallback(() => {
+	const count1 = useTypedSelector(state => state.counter.value1)
+
+    const count2 = useTypedSelector(state => state.counter.value2)
+
+	const increment = useCallback(() => {
 		dispatch({ type: CounterTypes.INCREMENT })
 	}, [dispatch])
 
-	const d = useCallback(() => {
+	const decrement = useCallback(() => {
 		dispatch({ type: CounterTypes.DECREMENT })
+	}, [dispatch])
+
+    const increment1 = useCallback(() => {
+		dispatch({ type: CounterTypes.INCREMENT1 })
+	}, [dispatch])
+
+	const decrement1 = useCallback(() => {
+		dispatch({ type: CounterTypes.DECREMENT1 })
 	}, [dispatch])
 
 	return (
 		<React.Fragment>
-			<Counter value={value} increment={i} decrement={d} />
-			{/*<Counter value={value} increment={i} decrement={d} />*/}
+			<Counter value={count1} increment={increment} decrement={decrement} />
+			<Counter value={count2} increment={increment1} decrement={decrement1} />
 		</React.Fragment>
 	)
-}
+};
