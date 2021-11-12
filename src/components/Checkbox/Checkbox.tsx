@@ -1,12 +1,12 @@
-import { Props } from "../Checkbox/types";
-import './Checkbox.module.sass';
+import { Props } from './types'
+import styles from './Checkbox.module.sass'
 
-export const Checkbox =  ({ value, checked }: Props) => {
-    return (
-        <div>
-            <label>Checkbox:</label> 
-            <input type="checkbox" onClick={checked}></input>
-            <p>Click {value} times</p>
-        </div>
-    )
-};
+export const Checkbox = ({ value, changeCheckbox }: Props) => {
+	return (
+		<label className={styles.checkbox_label}>
+			Checkbox:
+			<input type='checkbox' onChange={changeCheckbox} />
+			<p> Status: {JSON.stringify(value)}</p>
+		</label>
+	)
+}

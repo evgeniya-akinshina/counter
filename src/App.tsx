@@ -1,52 +1,44 @@
-import React, { useCallback } from 'react';
-import { Counter } from './components/Counters';
-import { useDispatch } from 'react-redux';
-import { useTypedSelector } from './hooks/useTypedSelector';
-import { CounterTypes, CheckboxTypes, SwitchTypes } from './store/reducers/counter/types';
-import { Checkbox } from './components/Checkbox';
-import { Switch } from './components/Switch';
+import React, { useCallback } from 'react'
+import { Counter } from './components/Counters'
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from './hooks/useTypedSelector'
+import { CounterTypes } from './store/reducers/counter/types'
+import { Checkbox } from './components/Checkbox'
+import { Switch } from './components/Switch'
 
 export function App() {
 	const dispatch = useDispatch()
 
-	const count1 = useTypedSelector(state => state.counter.value1)
+	const { values, checkboxValue, switchValue } = useTypedSelector(state => state.counter)
 
-    const count2 = useTypedSelector(state => state.counter.value2)
+	const increment = useCallback(
+		(index: number) => {
+			dispatch({ type: CounterTypes.INCREMENT, payload: { index } })
+		},
+		[dispatch],
+	)
 
-    const count3 = useTypedSelector(state => state.counter.value3)
+	const decrement = useCallback(
+		(index: number) => {
+			dispatch({ type: CounterTypes.DECREMENT, payload: { index } })
+		},
+		[dispatch],
+	)
 
-    const count4 = useTypedSelector(state => state.counter.value4)
-
-	const increment = useCallback(() => {
-		dispatch({ type: CounterTypes.INCREMENT })
+	const changeCheckbox = useCallback(() => {
+		dispatch({ type: CounterTypes.CHECKBOX })
 	}, [dispatch])
 
-	const decrement = useCallback(() => {
-		dispatch({ type: CounterTypes.DECREMENT })
-	}, [dispatch])
-
-    const increment1 = useCallback(() => {
-		dispatch({ type: CounterTypes.INCREMENT1 })
-	}, [dispatch])
-
-	const decrement1 = useCallback(() => {
-		dispatch({ type: CounterTypes.DECREMENT1 })
-	}, [dispatch])
-
-    const changed = useCallback(() => {
-		dispatch({ type: SwitchTypes.CHANGED })
-	}, [dispatch])
-
-    const checked = useCallback(() => {
-		dispatch({ type: CheckboxTypes.CHECKED })
+	const changeSwitch = useCallback(() => {
+		dispatch({ type: CounterTypes.SWITCH })
 	}, [dispatch])
 
 	return (
 		<React.Fragment>
-			<Counter value={count1} increment={increment} decrement={decrement} />
-			<Counter value={count2} increment={increment1} decrement={decrement1} />
-            <Checkbox value={count3} checked={checked} />
-            <Switch value={count4} changed={changed} />
+			<Counter value={values[0]} increment={increment} decrement={decrement} />
+			<Counter value={values[0]} increment={increment} decrement={decrement} />
+			<Checkbox value={checkboxValue} changeCheckbox={changeCheckbox} />
+			<Switch value={switchValue} changeSwitch={changeSwitch} />
 		</React.Fragment>
 	)
-};
+}

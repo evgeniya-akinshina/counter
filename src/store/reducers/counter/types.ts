@@ -1,21 +1,12 @@
 export type CounterState = {
-	value1: number
-	value2: number
-    value3: number
-    value4: number
+	values: number[]
+	checkboxValue: boolean
+	switchValue: boolean
 }
 
 export enum CounterTypes {
 	INCREMENT = 'counter|increment',
 	DECREMENT = 'counter|decrement',
-	INCREMENT1 = 'counter|increment1',
-	DECREMENT1 = 'counter|decrement1',
+	CHECKBOX = 'counter|checkboxValue',
+	SWITCH = 'counter|switchValue',
 }
-
-export enum CheckboxTypes {
-    CHECKED = 'checkbox|checked',
-};
-
-export enum SwitchTypes {
-    CHANGED = 'switch|changed',
-};

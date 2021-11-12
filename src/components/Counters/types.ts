@@ -1,5 +1,5 @@
 export type Props = {
 	value: number
-	increment: () => void
-	decrement: () => void
-};
+	increment: (index: number) => void
+	decrement: (index: number) => void
+}

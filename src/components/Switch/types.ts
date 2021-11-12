@@ -1,4 +1,4 @@
 export type Props = {
-    value: number
-    changed: () => void
-};
+	value: boolean
+	changeSwitch: () => void
+}

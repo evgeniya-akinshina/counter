@@ -1,4 +1,4 @@
 export type Props = {
-    value: number
-    checked: () => void
-};
+	value: boolean
+	changeCheckbox: () => void
+}

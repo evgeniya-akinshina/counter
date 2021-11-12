@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
-import { rootReducer } from './reducers';
+import { createStore } from 'redux'
+import { rootReducer } from './reducers'
 
 export type RootState = ReturnType<typeof rootReducer>
 
@@ -22,6 +22,6 @@ export type RootState = ReturnType<typeof rootReducer>
 // return store
 // }
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer)
 
 // export const useTypedSelector = () => {}
