@@ -10,6 +10,7 @@ export function App() {
 	const dispatch = useDispatch()
 
 	const { values, checkboxValue, switchValue } = useTypedSelector(state => state.counter)
+    console.log(values)
 
 	const increment = useCallback(
 		(index: number) => {

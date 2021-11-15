@@ -6,24 +6,13 @@ const initialState: State = {
 	switchValue: false,
 }
 
-interface Action {
-	type: any
-	payload?: number
-}
-
-export const counterReducer = (state: State = initialState, action: Action) => {
+export const counterReducer = (state: State = initialState, action: any) => {
 	switch (action.type) {
 		case CounterTypes.INCREMENT:
-			const obj1 = Object.assign(state, state.values[0] + 1)
-			return {
-				obj1,
-			}
+            return Object.assign([], state.values, {index: state.values}, state.values[0] + 1)
 
 		case CounterTypes.DECREMENT:
-			const obj2 = Object.assign(state)
-			return {
-				obj2,
-			}
+			return {}
 
 		case CounterTypes.CHECKBOX:
 			return { ...state, checkboxValue: !state.checkboxValue }
