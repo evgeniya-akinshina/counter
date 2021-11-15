@@ -1,4 +1,5 @@
 import { CounterState as State, CounterTypes } from './types'
+import { RootActions } from '../../types'
 
 const initialState: State = {
 	values: [0, 0],
@@ -6,21 +7,29 @@ const initialState: State = {
 	switchValue: false,
 }
 
-export const counterReducer = (state: State = initialState, action: any) => {
-	switch (action.type) {
-		case CounterTypes.INCREMENT:
-            return Object.assign([], state.values, {index: state.values}, state.values[0] + 1)
+export const counterReducer = (state: State = initialState, action: RootActions): State => {
+    switch (action.type) {
+        case CounterTypes.INCREMENT:
+            console.log(action.payload)
+            return {
+                ...state,
+                values: Object.assign([], state.values, { [action.payload]: state.values[action.payload + 1] })
+            }
 
-		case CounterTypes.DECREMENT:
-			return {}
+        case CounterTypes.DECREMENT:
+            console.log(action.payload)
+            return {
+                ...state,
+                values: Object.assign([], state.values, { [action.payload]: state.values[action.payload - 1] })
+            }
 
-		case CounterTypes.CHECKBOX:
-			return { ...state, checkboxValue: !state.checkboxValue }
+        // case CounterTypes.CHECKBOX:
+        // 	return { ...state, checkboxValue: !state.checkboxValue }
+        
+        // case CounterTypes.SWITCH:
+        // 	return { ...state, switchValue: !state.switchValue }
 
-		case CounterTypes.SWITCH:
-			return { ...state, switchValue: !state.switchValue }
-
-		default:
-			return state
-	}
-}
+        default:
+            return state
+    }
+};

@@ -1,7 +1,6 @@
 import { createStore } from 'redux'
 import { rootReducer } from './reducers'
-
-export type RootState = ReturnType<typeof rootReducer>
+import { RootState } from './types'
 
 // const configureStore = (): RootState => {
 // Create saga middleware

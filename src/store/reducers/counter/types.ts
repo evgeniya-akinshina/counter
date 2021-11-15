@@ -10,3 +10,15 @@ export enum CounterTypes {
 	CHECKBOX = 'counter|checkboxValue',
 	SWITCH = 'counter|switchValue',
 }
+
+export type Increment = {
+	type: CounterTypes.INCREMENT
+	payload: number
+}
+
+export type Decrement = {
+	type: CounterTypes.DECREMENT
+	payload: number
+}
+
+export type CounterActions = Increment | Decrement
