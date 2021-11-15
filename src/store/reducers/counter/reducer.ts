@@ -8,28 +8,26 @@ const initialState: State = {
 }
 
 export const counterReducer = (state: State = initialState, action: RootActions): State => {
-    switch (action.type) {
-        case CounterTypes.INCREMENT:
-            console.log(action.payload)
-            return {
-                ...state,
-                values: Object.assign([], state.values, { [action.payload]: state.values[action.payload + 1] })
-            }
+	switch (action.type) {
+		case CounterTypes.INCREMENT:
+			return {
+				...state,
+				values: Object.assign([], state.values, { [action.payload]: state.values[action.payload] + 1 }),
+			}
 
-        case CounterTypes.DECREMENT:
-            console.log(action.payload)
-            return {
-                ...state,
-                values: Object.assign([], state.values, { [action.payload]: state.values[action.payload - 1] })
-            }
+		case CounterTypes.DECREMENT:
+			return {
+				...state,
+				values: Object.assign([], state.values, { [action.payload]: state.values[action.payload] - 1 }),
+			}
 
-        // case CounterTypes.CHECKBOX:
-        // 	return { ...state, checkboxValue: !state.checkboxValue }
-        
-        // case CounterTypes.SWITCH:
-        // 	return { ...state, switchValue: !state.switchValue }
+		case CounterTypes.CHECKBOX:
+			return { ...state, checkboxValue: !state.checkboxValue }
 
-        default:
-            return state
-    }
-};
+		// case CounterTypes.SWITCH:
+		// 	return { ...state, switchValue: !state.switchValue }
+
+		default:
+			return state
+	}
+}

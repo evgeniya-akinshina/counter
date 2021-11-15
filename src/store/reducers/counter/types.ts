@@ -21,4 +21,8 @@ export type Decrement = {
 	payload: number
 }
 
-export type CounterActions = Increment | Decrement
+export type OnChangeCheckbox = {
+	type: CounterTypes.CHECKBOX
+}
+
+export type CounterActions = Increment | Decrement | OnChangeCheckbox

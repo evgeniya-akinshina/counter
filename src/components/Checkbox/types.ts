@@ -1,4 +1,4 @@
 export type Props = {
 	value: boolean
-	changeCheckbox: () => void
+	onChange: (state: boolean) => void
 }

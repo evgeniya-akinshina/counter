@@ -10,7 +10,12 @@ const decrement = (index: number): Types.Decrement => ({
 	payload: index,
 })
 
+const onChangeCheckbox = (): Types.OnChangeCheckbox => ({
+	type: Types.CounterTypes.CHECKBOX,
+})
+
 export const actions = {
 	increment,
 	decrement,
+	onChangeCheckbox,
 }
