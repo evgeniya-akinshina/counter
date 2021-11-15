@@ -9,6 +9,7 @@ export const mapStateToProps = (state: RootState) => ({
 
 export const mapActionsToProps = {
 	increment: counterActions.increment,
+    decrement: counterActions.decrement,
 }
 
 export const HomePage = connect(mapStateToProps, mapActionsToProps)(Component)
