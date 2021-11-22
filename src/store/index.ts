@@ -1,6 +1,5 @@
 import { createStore } from 'redux'
 import { rootReducer } from './reducers'
-import { RootState } from './types'
 
 // const configureStore = (): RootState => {
 // Create saga middleware

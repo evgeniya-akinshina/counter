@@ -1,4 +1,4 @@
 export type Props = {
 	value: boolean
-	changeSwitch: () => void
+	onChange: (state: boolean) => void
 }

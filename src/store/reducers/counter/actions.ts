@@ -14,8 +14,13 @@ const onChangeCheckbox = (): Types.OnChangeCheckbox => ({
 	type: Types.CounterTypes.CHECKBOX,
 })
 
+const onChangeSwitch = (): Types.OnChangeSwitch => ({
+	type: Types.CounterTypes.SWITCH,
+})
+
 export const actions = {
 	increment,
 	decrement,
 	onChangeCheckbox,
+    onChangeSwitch,
 }
