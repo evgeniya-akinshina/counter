@@ -22,5 +22,5 @@ export const actions = {
 	increment,
 	decrement,
 	onChangeCheckbox,
-    onChangeSwitch,
+	onChangeSwitch,
 }

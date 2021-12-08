@@ -1,18 +1,31 @@
 import classNames from 'classnames'
-import { MouseEventHandler, PropsWithChildren } from 'react'
 import styles from './Button.module.sass'
 
-type Props = PropsWithChildren<{
-    onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-    disabled?: boolean
-    text?: string
-    className?: string
-    variant?: "primary" | "outline"
-}>
+export type Props = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
+	variant?:
+		| 'primary'
+		| 'outlinePrimary'
+		| 'primary-underline'
+		| 'secondary'
+		| 'outline-secondary'
+		| 'success'
+		| 'outline-success'
+		| 'danger'
+		| 'outline-danger'
+		| 'warning'
+		| 'outline-warning'
+		| 'info'
+		| 'outline-info'
+		| 'white'
+		| 'outline-white'
+		| 'dark'
+		| 'outline-dark'
+}
 
 export const Button = (props: Props) => {
-    const { className, text, children, variant='primary', ...buttonProps } = props
-    return (
-        <button className={classNames(styles.btn, { styles[variant]: true })} {...buttonProps} children={children || text} />
-    )
+	const { className, variant = 'primary', ...buttonProps } = props
+	const variantToCamelCase = variant.replace(/-([a-z])/g, function (g) {
+		return g[1].toUpperCase()
+	})
+	return <button className={classNames(styles.btn, { [styles[variantToCamelCase]]: true })} {...buttonProps} />
 }

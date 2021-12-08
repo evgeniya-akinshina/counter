@@ -7,7 +7,7 @@ export type CounterState = {
 export enum CounterTypes {
 	INCREMENT = 'counter|increment',
 	DECREMENT = 'counter|decrement',
-    ADD_COUNTER = 'counter|addCounter',
+	ADD_COUNTER = 'counter|addCounter',
 	REMOVE_COUNTER = 'counter|removeCounter',
 	CHECKBOX = 'counter|checkboxValue',
 	SWITCH = 'counter|switchValue',
@@ -39,4 +39,4 @@ export type OnChangeSwitch = {
 	type: CounterTypes.SWITCH
 }
 
-export type CounterActions = Increment | Decrement | OnChangeCheckbox | OnChangeSwitch | AddCounter | RemoveCounter 
+export type CounterActions = Increment | Decrement | OnChangeCheckbox | OnChangeSwitch | AddCounter | RemoveCounter

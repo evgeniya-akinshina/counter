@@ -21,18 +21,18 @@ export const counterReducer = (state: State = initialState, action: RootActions)
 				values: Object.assign([], state.values, { [action.payload]: state.values[action.payload] - 1 }),
 			}
 
-        case CounterTypes.ADD_COUNTER:
-            return {
-                ...state,
-                values: [ ...state.values, 0 ]
-            }
-
-		case CounterTypes.REMOVE_COUNTER:
-            const values = [...state.values]
-            values.pop()
+		case CounterTypes.ADD_COUNTER:
 			return {
 				...state,
-                values
+				values: [...state.values, 0],
+			}
+
+		case CounterTypes.REMOVE_COUNTER:
+			const values = [...state.values]
+			values.pop()
+			return {
+				...state,
+				values,
 			}
 
 		case CounterTypes.CHECKBOX:
@@ -44,4 +44,4 @@ export const counterReducer = (state: State = initialState, action: RootActions)
 		default:
 			return state
 	}
-};
+}
