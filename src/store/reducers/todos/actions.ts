@@ -1,4 +1,3 @@
-import { Todo } from '.'
 import * as Types from './types'
 
 const getTodosStart = (): Types.TodoStart => ({
@@ -10,7 +9,7 @@ const getTodosSuccess = (payload: Types.TodoSuccess['payload']): Types.TodoSucce
 	payload,
 })
 
-const getTodosFailure = (): Types.TodoFailue => ({
+const getTodosFailure = (): Types.TodoFailure => ({
 	type: Types.TodosTypes.FETCH_TODOS__FAILURE,
 })
 
@@ -19,8 +18,8 @@ const removeTodo = (payload: Types.RemoveTodo['payload']): Types.RemoveTodo => (
 	payload,
 })
 
-const compliteTodo = (payload: Types.CompliteTodo['payload']): Types.CompliteTodo => ({
-	type: Types.TodosTypes.COMPLITE_TODO,
+const completeTodo = (payload: Types.CompleteTodo['payload']): Types.CompleteTodo => ({
+	type: Types.TodosTypes.COMPLETE_TODO,
 	payload,
 })
 
@@ -29,5 +28,5 @@ export const actions = {
 	getTodosSuccess,
 	getTodosFailure,
 	removeTodo,
-	compliteTodo,
+	completeTodo,
 }

@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { HomePage as Component } from './HomePage'
 import { RootState } from '../../store/types'
 import { counterActions } from '../../store/reducers/counter'
-import { todoListActions } from '../../store/reducers/todoList'
+import { todosActions } from '../../store/reducers/todos'
 
 export const mapStateToProps = (state: RootState) => ({
 	values: state.counter.values,
@@ -14,11 +14,12 @@ export const mapStateToProps = (state: RootState) => ({
 export const mapActionsToProps = {
 	increment: counterActions.increment,
 	decrement: counterActions.increment,
-	getTodosStart: todoListActions.getTodosStart,
-	getTodosSuccess: todoListActions.getTodosSuccess,
-	getTodosFailure: todoListActions.getTodosFailure,
-	complitedTodo: todoListActions.compliteTodo,
-	removeTodo: todoListActions.removeTodo,
+	getTodosStart: todosActions.getTodosStart,
+	getTodosSuccess: todosActions.getTodosSuccess,
+	getTodosFailure: todosActions.getTodosFailure,
+	completedTodo: todosActions.completeTodo,
+	removeTodo: todosActions.removeTodo,
 }
 
-export const HomePage = connect(mapStateToProps, mapActionsToProps)(Component)
+export const connector = connect(mapStateToProps, mapActionsToProps)
+export const HomePage = connector(Component)

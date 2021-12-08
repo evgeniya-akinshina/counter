@@ -1,6 +1,4 @@
-import { ConnectProps } from '../../store/types'
-import { mapActionsToProps, mapStateToProps } from './container'
+import { connector } from './container'
+import { ConnectedProps } from 'react-redux'
 
-type WithRedux = ConnectProps<typeof mapStateToProps, typeof mapActionsToProps>
-
-export type Props = WithRedux & {}
+export type Props = ConnectedProps<typeof connector> & {}

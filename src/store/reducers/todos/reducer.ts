@@ -32,10 +32,13 @@ export const todosReducer = (state: State = initialState, action: RootActions): 
 				...state,
 				data: state.data.filter(item => item.id !== action.payload),
 			}
-		case TodosTypes.COMPLITE_TODO:
+		case TodosTypes.COMPLETE_TODO:
 			const index = state.data.findIndex(item => item.id === action.payload)
+
 			if (index === -1) return state
+
 			state.data[index].completed = !state.data[index].completed
+
 			return {
 				...state,
 				data: [...state.data],

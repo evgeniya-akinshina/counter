@@ -1,14 +1,12 @@
 import { useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { counterActions } from '../store/reducers/counter/index'
-import { todoListActions } from '../store/reducers/todoList/index'
-
-export const actionCreators = {
-	...counterActions,
-	...todoListActions,
-}
+import { counterActions } from '../store/reducers/counter'
+import { todosActions } from '../store/reducers/todos'
 
 export const useActions = () => {
 	const dispatch = useDispatch()
-	return bindActionCreators(actionCreators, dispatch)
+	return {
+		counterActions: bindActionCreators(counterActions, dispatch),
+		todosActions: bindActionCreators(todosActions, dispatch),
+	}
 }

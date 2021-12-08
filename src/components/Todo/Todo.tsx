@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { Todo as TodoType } from '../../store/reducers/todoList/types'
+import { Todo as TodoType } from '../../store/reducers/todos/types'
 import styles from './Todo.module.sass'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 export const Todo = ({ todo, onClickDeleteButton, onClick }: Props) => {
 	return (
 		<>
-			<div className={classNames(styles.todo, { [styles.complited]: todo.completed })}>
+			<div className={classNames(styles.todo, { [styles.completed]: todo.completed })}>
 				{todo.id + '. '}
 				{todo.title}
 			</div>
