@@ -16,7 +16,9 @@ export enum TodosTypes {
 	FETCH_TODOS__SUCCESS = 'todos|fetchTodosSuccess',
 	FETCH_TODOS__FAILURE = 'todos|fetchTodosFailure',
 	REMOVE_TODO = 'todos|removeTodo',
-	COMPLETE_TODO = 'todos|completeTodo',
+    COMPLETE_TODO = 'todos|completeTodo',
+    EDIT_TODO = 'todos|editTodo',
+    SAVE_TODO = 'todos|saveTodo',
 }
 
 export type TodoStart = {
@@ -42,4 +44,9 @@ export type CompleteTodo = {
 	payload: Todo['id']
 }
 
-export type TodosActions = TodoStart | TodoSuccess | TodoFailure | RemoveTodo | CompleteTodo
+export type EditTodo = {
+	type: TodosTypes.EDIT_TODO
+	payload: {id:  Todo['id'], title: Todo['title']}
+}
+
+export type TodosActions = TodoStart | TodoSuccess | TodoFailure | RemoveTodo | CompleteTodo | EditTodo

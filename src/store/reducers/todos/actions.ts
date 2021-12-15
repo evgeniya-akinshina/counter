@@ -23,10 +23,16 @@ const completeTodo = (payload: Types.CompleteTodo['payload']): Types.CompleteTod
 	payload,
 })
 
+const editTodo = (payload: Types.EditTodo['payload']): Types.EditTodo => ({
+	type: Types.TodosTypes.EDIT_TODO,
+	payload,
+})
+
 export const actions = {
 	getTodosStart,
 	getTodosSuccess,
 	getTodosFailure,
 	removeTodo,
 	completeTodo,
+    editTodo,
 }

@@ -19,6 +19,7 @@ export const mapActionsToProps = {
 	getTodosFailure: todosActions.getTodosFailure,
 	completedTodo: todosActions.completeTodo,
 	removeTodo: todosActions.removeTodo,
+    editTodo: todosActions.editTodo,
 }
 
 export const connector = connect(mapStateToProps, mapActionsToProps)
